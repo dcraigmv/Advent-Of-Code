@@ -15,18 +15,16 @@ from common.base import Base
 
 class Puzzle(Base):
     def solution(self):
-        totals = []
+        totals = {}
         elf_index = 0
         for cal in self.input:
             if cal == "":
                 elf_index += 1
                 continue
-            try:
-                totals[elf_index] += int(cal)
-            except IndexError as e:
-                totals.append(int(cal))
 
-        return max(totals)
+            totals[elf_index] = totals.get(elf_index, 0) + int(cal)
+
+        return max(totals.values())
 
 
 if __name__ == "__main__":
