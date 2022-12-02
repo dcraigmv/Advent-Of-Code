@@ -57,7 +57,6 @@ class Puzzle(Base):
         for round in self.input:
             my_hand = self.intended_hand(*round)
             score = self.hand_score(my_hand) + self.round_score(round[0], my_hand)
-            print(score)
             scores.append(score)
 
         return sum(scores)
