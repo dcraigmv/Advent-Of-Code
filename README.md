@@ -25,3 +25,5 @@ docker run --rm $(docker build -q .)
 `common/base.py` contains a class that opens a text file called `input` in the relevant day directory and adds each line to the list `self.input`, it can also optionally run a function over each line for conversion and sanitisation.
 
 Each `dayX` directory contains it's input and two parts, these parts contain a class that overrides the base class and mixes in a `def solution` method that contains the logic relevant to that part.
+
+The puzzle description is in a `README.md` inside each day directory.
