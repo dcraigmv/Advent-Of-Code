@@ -5,4 +5,4 @@ ENV PYTHONPATH /app
 COPY . /app
 WORKDIR /app
 
-CMD python -u day1/part1.py
+CMD sh -c 'for d in day*; do echo $d; python -u $d/part1.py; python -u $d/part2.py; done'
