@@ -14,7 +14,13 @@ from common.base import Base
 
 
 class Puzzle(Base):
-    def hand_score(self, hand):
+    def hand_score(self, hand: str) -> int:
+        """
+        Calc the numerical score for the hand, can be in ABC or XYZ notation
+        rock:1 paper:2 scissors:3
+        :param hand: str, a letter corresponding to the hand
+        :return: int,    rock:1 paper:2 scissors:3
+        """
         try:
             return ["A", "B", "C"].index(hand) + 1
         except ValueError:
@@ -23,7 +29,14 @@ class Puzzle(Base):
             except ValueError:
                 return 0
 
-    def round_score(self, opponent_hand, my_hand):
+    def round_score(self, opponent_hand: str, my_hand: str) -> int:
+        """
+        Calc the numerical score for the round
+        lose:0 draw:3 win:6
+        :param opponent_hand: str, the hand to compare against
+        :param my_hand: str, the hand to compare with
+        :return: int, the score
+        """
         opponent_score = self.hand_score(opponent_hand)
         my_score = self.hand_score(my_hand)
 
@@ -41,6 +54,10 @@ class Puzzle(Base):
         return (6 if my_score > opponent_score else 0)
 
     def solution(self):
+        """
+        Nothing special, loop through calling the other methods and then summing
+        :return: int, sum of all scores for all rounds
+        """
         scores = []
         for round in self.input:
             score = self.hand_score(round[1]) + self.round_score(*round)
