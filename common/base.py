@@ -20,11 +20,10 @@ class Base:
     def __init__(self, input_path: str = None, map_function: Callable[[str], any] = str):
         # get current day and script directory
         script_dir = os.path.dirname(os.path.realpath(sys.argv[0]))
-        day = os.path.basename(script_dir)
 
         # default to day input file name format
         if input_path is None:
-            input_path = "%s.input" % day
+            input_path = "input"
 
         abs_input_path = os.path.join(script_dir, input_path)
         assert os.path.isfile(abs_input_path)
