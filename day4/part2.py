@@ -46,8 +46,8 @@ if __name__ == "__main__":
             end = int(elf[1])
 
             # build a binary string 1 means the elf is working that section 0 means not
-            # 2-4  ->  011100... the maximum section number seems to be 100 so rpad with zeros
-            elf = (["0"] * (start - 1)) + (["1"] * (1 + end - start)) + (["0"] * (100 - end))
+            # 2-4  ->  ...001110 the maximum section number seems to be 100 so lpad with zeros
+            elf = (["0"] * (100 - end)) + (["1"] * (1 + end - start)) + (["0"] * (start - 1))
             bin_elves.append(int("".join(elf), 2))
 
         return bin_elves
