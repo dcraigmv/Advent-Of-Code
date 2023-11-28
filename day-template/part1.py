@@ -15,8 +15,9 @@ from common.base import Base
 
 class Puzzle(Base):
     def solution(self):
-        return
+        return self.input
+
 
 if __name__ == "__main__":
-    puzzle = Puzzle(map_function=lambda x:str(x).strip())
+    puzzle = Puzzle()
     print(puzzle.solution())
