@@ -5,7 +5,7 @@
 """
 
 __author__ = "Daniel Craig"
-__copyright__ = "Copyright 2022"
+__copyright__ = "Copyright 2023"
 __version__ = "1.0.0"
 __maintainer__ = "Daniel Craig"
 __status__ = "Development"
